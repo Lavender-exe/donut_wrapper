@@ -58,16 +58,16 @@ class DonutWrapper(PayloadType):
             name = "bypass",
             parameter_type = BuildParameterType.ChooseOne,
             description = "Behaviour for bypassing AMSI/WLDP. 1 = None, 2 = Abort On Fail, 3 = Continue On Fail (Default).",
-            choices = [1, 2, 3],
-            default_value = 3
+            choices = ["1", "2", "3"],
+            default_value = "3"
         ),
 
         BuildParameter(
             name = "headers",
             parameter_type = BuildParameterType.ChooseOne,
             description = "Preserve PE Headers. 1 = Overwrite (Default), 2 = Keep All.",
-            choices = [1, 2],
-            default_value = 1
+            choices = ["1", "2"],
+            default_value = "1"
         ),
 
         BuildParameter(
@@ -88,16 +88,16 @@ class DonutWrapper(PayloadType):
             name = "entropy",
             parameter_type = BuildParameterType.ChooseOne,
             description = "Entropy level. 1 = None, 2 = Generate Random Names, 3 = Generate Random Names + Use Symmetric Encryption (Default).",
-            choices = [1, 2, 3],
-            default_value = 3
+            choices = ["1", "2", "3"],
+            default_value = "3"
         ),
 
         BuildParameter(
             name = "format",
             parameter_type = BuildParameterType.ChooseOne,
             description = "The output format of loader saved to file. 1 = Binary (Default), 2 = Base64, 3 = C, 4 = Ruby, 5 = Python, 6 = PowerShell, 7 = C#, 8 = Hexadecimal",
-            choices = [1, 2, 3, 4, 5, 6, 7, 8],
-            default_value = 1
+            choices = ["1", "2", "3", "4", "5", "6", "7", "8"],
+            default_value = "1"
         ),
 
         BuildParameter(
@@ -139,16 +139,16 @@ class DonutWrapper(PayloadType):
             name = "exit",
             parameter_type = BuildParameterType.ChooseOne,
             description = "Determines how the loader should exit. 1 = Exit Thread (default), 2 = Exit Process, 3 = Do not exit or cleanup and block indefinitely.",
-            choices = [1, 2, 3],
-            default_value = 1
+            choices = ["1", "2", "3"],
+            default_value = "1"
         ),
 
         BuildParameter(
             name = "engine",
             parameter_type = BuildParameterType.ChooseOne,
             description = "Pack/Compress the input file. 1 = None, 2 = aPLib, 3 = LZNT1, 4 = Xpress, 5 = Xpress Huffman. Currently, the last three are only supported on Windows.",
-            choices = [1, 2, 3, 4, 5],
-            default_value = 1
+            choices = ["1", "2", "3", "4", "5"],
+            default_value = "1"
         ),
 
         BuildParameter(
