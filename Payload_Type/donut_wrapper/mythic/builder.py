@@ -50,8 +50,8 @@ class DonutWrapper(PayloadType):
             name = "architecture",
             parameter_type = BuildParameterType.ChooseOne,
             description = "Select the Loader's Architecture. 1 = x86, 2 = amd64, 3 = x86+amd64 (Default).",
-            choices = [1, 2, 3],
-            default_value = 3
+            choices = ["1", "2", "3"],
+            default_value = "3"
         ),
 
         BuildParameter(
