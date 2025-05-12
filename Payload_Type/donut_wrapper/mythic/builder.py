@@ -150,6 +150,13 @@ class DonutWrapper(PayloadType):
             choices = [1, 2, 3, 4, 5],
             default_value = 1
         ),
+
+        BuildParameter(
+            name = "runasthread",
+            parameter_type = BuildParameterType.Boolean,
+            description = "Run the entrypoint of an unmanaged/native EXE as a thread and wait for thread to end.",
+            default_value = False
+        ),
     ]
 
     async def build(self) -> BuildResponse:
@@ -159,8 +166,8 @@ class DonutWrapper(PayloadType):
             agent_build_path = tempfile.TemporaryDirectory(suffix = self.uuid).name
             copy_tree(str(self.agent_code_path), agent_build_path)
 
-            working_path = f"{PurePath(agent_build_path)}/output/loader.bin"
-            output_path = f"{PurePath(agent_build_path)}/output/donut.bin"
+            working_path = f"{PurePath(agent_build_path)}/donut_v1.1/output/loader.bin"
+            output_path = f"{PurePath(agent_build_path)}/donut_v1.1/output/donut.bin"
             output_path = str(output_path)
 
             with open(str(working_path), "wb") as file:
@@ -187,6 +194,7 @@ class DonutWrapper(PayloadType):
             command += f" -s {self.get_parameter('server')}"
             command += f" -x {self.get_parameter('exit')}"
             command += f" -z {self.get_parameter('engine')}"
+            command += " -t" if self.get_parameter('runasthread') else " "
             command += f" -o {output_path}"
 
             process = await asyncio.create_subprocess_shell(
