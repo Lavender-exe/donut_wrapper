@@ -36,7 +36,7 @@ class DonutWrapper(PayloadType):
     supports_dynamic_loading = False
     c2_profiles = []
 
-    agent_path = PurePath(".") / "donut_wrapper"
+    agent_path = PurePath("..")
     agent_icon_path = agent_path / "mythic" / "donut.svg"
     agent_code_path = agent_path / "agent_code"
 
